@@ -1,0 +1,25 @@
+<!Doctype html>
+
+<html xmlns:th="http://thymeleaf.org">
+    <head th:fragment="site-head"></head>
+
+    <body>
+        <header th:fragment="logged-out" th:remove="tag">
+            <header>
+                <a  th:href="@{/users/login}">Login</a>
+                <a href="users/registration.html" th:href="@{/users/registration}">Registration</a>
+            </header>
+        </header>
+
+        <header th:fragment="logged-in" th:remove="tag">
+            <header>
+                <b>Logged in as:</b>
+              <user  th:each = "u : ${Users}">
+                  <h1 th:text = "${u.username}"></h1>
+                  <h1 th:text = "${u.password}"></h1>
+              </user>
+            </header>
+        </header>
+    </body>
+
+</html>
